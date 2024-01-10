@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marriage Bureau</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Marriage Bureau</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="user-auth">
+
+        <a href="#" class="btn" onclick="document.getElementById('loginModal').style.display='block'">Login</a>
+        <a href="#" class="btn" onclick="document.getElementById('signupModal').style.display='block'">Sign Up</a>
+      </div>
+    </div>
+  </header>
+  
+  
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
+      <h2>Login</h2>
+      <form action="loginapi.php" method="post" class="auth-form">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login" class="btn">
+      </form>
+    
+    </div>
+  </div>
+  
+  
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('signupModal').style.display='none'">&times;</span>
+      <h2>Sign Up</h2>
+     
+  <form action="signupapi.php" method="post" class="auth-form">
+    <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required>
+    <input type="submit" value="Sign Up" class="btn">
+  </form>
+    </div>
+  </div>
+      
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Welcome to Marriage Bureau</h2>
+    <p>Find your perfect match here!</p>
+    <p>Marriage is a significant milestone in one’s life, and finding the right partner is a crucial step on this journey. While it’s essential to remember that every individual is unique and has their own preferences, there are some common qualities that many women look for in a man when considering marriage. Let’s explore what women typically want in a potential life partner:
+
+        Respect and Equality: One of the foundational aspects of a successful marriage is mutual respect. Women seek partners who treat them as equals, valuing their opinions, ideas, and aspirations. A strong, healthy marriage is built on teamwork and partnership, where both individuals support each other’s goals and growth.
+        
+        Communication Skills: Effective communication is key to resolving conflicts and maintaining a strong emotional connection. Women appreciate men who are open, honest, and willing to listen actively. Being able to communicate openly about feelings, thoughts, and concerns fosters trust and intimacy in a relationship.
+        
+        Trustworthiness and Dependability: Trust is the cornerstone of a lasting marriage. Women want a man they can rely on, someone who keeps their promises, is consistent in their actions, and can be trusted with both emotional and practical matters.
+        
+        Shared Values and Goals: Marriage often involves merging two lives, and it’s crucial that both partners share core values and life goals. Compatibility in areas such as religion, family, finances, and lifestyle choices can lead to a smoother and more harmonious partnership.
+        </p>
+  </section>
+</main>
+
+
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Marriage Bureau. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+    var loginModal = document.getElementById('loginModal');
+    var signupModal = document.getElementById('signupModal');
+    
+    window.onclick = function(event) {
+      if (event.target == loginModal) {
+        loginModal.style.display = "none";
+      }
+      if (event.target == signupModal) {
+        signupModal.style.display = "none";
+      }
+    }
+    </script>
+</body>
+</html>
