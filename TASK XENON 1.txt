@@ -1,0 +1,127 @@
+TASK 1 
+
+Code Snippet
+
+#!/bin/bash
+
+case "$1" in
+    --help)
+        cat <<'EOF'
+        OPTIONS:
+            --help        Display this help and exit
+            --version     Output version information and exit
+
+        EXAMPLES:
+            internsctl cpu getinfo
+            internsctl memory getinfo
+        EOF
+        exit 0
+        ;;
+    --version)
+        echo "internsctl v0.1.0"
+        exit 0
+        ;;
+    cpu)
+        case "$2" in
+            getinfo) lscpu; exit 0 ;;
+        esac
+        ;;
+    memory)
+        case "$2" in
+            getinfo) free; exit 0 ;;
+        esac
+        ;;
+    user)
+        case "$2" in
+            create)
+                if [ -n "$3" ]; then
+                    sudo useradd -m "$3"
+                    echo "User $3 created successfully."
+                else
+                    echo "Error: Missing username."
+                    exit 1
+                fi
+                exit 0
+                ;;
+            list)
+                if [ "$3" == "--sudo-only" ]; then
+                    getent passwd | cut -d: -f1,3 | awk -F: '$2 > 999 { print $1 }'
+                else
+                    getent passwd | cut -d: -f1
+                fi
+                exit 0
+                ;;
+        esac
+        ;;
+    file)
+        case "$2" in
+            getinfo)
+                file_name="$3"
+                shift 3
+
+                file_info="File: $file_name Access: $(ls -l "$file_name" | cut -d' ' -f1-3)"
+                file_info+=" Size(B): $(stat -c%s "$file_name") Owner: $(stat -c%U "$file_name")"
+                file_info+=" Modify: $(stat -c%y "$file_name")"
+
+                while [ "$#" -gt 0 ]; do
+                    case "$1" in
+                        --size | -s) echo "$file_info" | awk '{print $6}'; ;;
+                        --permissions | -p) echo "$file_info" | awk '{print $4}'; ;;
+                        --owner | -o) echo "$file_info" | awk '{print $8}'; ;;
+                        --last-modified | -m) echo "$file_info" | awk '{print $10, $11}'; ;;
+                    esac
+                    shift
+                done
+
+                exit 0
+                ;;
+        esac
+        ;;
+esac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TASK   2
+
+MARRIAGE BEUREU
+
+Click on the link and open index.html and then u can surf on the website and sign up using ur email and create password… password will then be saved in the database SQL and then you can login with same credentials.
+
+Having XAMpp is required.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
